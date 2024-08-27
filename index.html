@@ -5,86 +5,258 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction App Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="header-container">
-            <div class="profile-icon">👤</div>
-            <div class="balance">Balance: $123.45</div>
-            <div class="notifications">🔔</div>
+            <div class="profile-icon">
+                <img src="profile.jpg" alt="Profile" />
+            </div>
+            <div class="balance">
+                Balance: <span>$123.45</span>
+            </div>
+            <div class="notifications" id="notificationsBtn">
+                <i class="fas fa-bell"></i>
+            </div>
         </div>
     </header>
 
     <!-- Main Navigation -->
     <nav class="main-nav">
-        <button id="homeBtn">Home</button>
-        <button id="scanQRBtn">Scan QR</button>
-        <button id="sendMoneyBtn">Send Money</button>
-        <button id="receiveMoneyBtn">Receive Money</button>
-        <button id="transactionHistoryBtn">History</button>
+        <button id="scanQRBtn"><i class="fas fa-qrcode"></i><span>Scan QR</span></button>
+        <button id="sendMoneyBtn"><i class="fas fa-paper-plane"></i><span>Send Money</span></button>
+        <button id="receiveMoneyBtn"><i class="fas fa-inbox"></i><span>Receive Money</span></button>
+        <button id="transactionHistoryBtn"><i class="fas fa-history"></i><span>History</span></button>
+        <button id="customizationBtn"><i class="fas fa-cog"></i><span>Customize</span></button>
     </nav>
 
-    <!-- Home Screen -->
-    <main id="homeScreen">
-        <section class="recent-transactions">
-            <h2>Recent Transactions</h2>
-            <ul>
-                <li>John Doe - $5.00 - 08/27/2024</li>
-                <li>Jane Smith - $10.00 - 08/26/2024</li>
-                <li>Store X - $20.00 - 08/25/2024</li>
-            </ul>
-        </section>
+    <!-- Dashboard -->
+    <main id="dashboard">
+        <!-- Quick Actions -->
         <section class="quick-actions">
-            <button id="donateBtn">Donate to Panhandler</button>
-            <button id="sendToContactBtn">Send to Contact</button>
-            <button id="payAtStoreBtn">Pay at Store</button>
+            <button class="action-btn" id="donateBtn">Donate to Panhandler</button>
+            <button class="action-btn" id="tipServiceWorkerBtn">Tip Service Worker</button>
+            <button class="action-btn" id="sendToContactBtn">Send to Contact</button>
+            <button class="action-btn" id="payAtStoreBtn">Pay at Store</button>
+            <button class="action-btn" id="topUpBtn">Top Up</button>
+        </section>
+
+        <!-- For Panhandlers and Service Workers -->
+        <section class="panhandler-section">
+            <h2>For Panhandlers and Service Workers</h2>
+            <div class="earnings-overview">
+                <div class="earnings-card">
+                    <h3>Daily Earnings</h3>
+                    <p>$30.00</p>
+                </div>
+                <div class="earnings-card">
+                    <h3>Weekly Earnings</h3>
+                    <p>$200.00</p>
+                </div>
+                <div class="earnings-card">
+                    <h3>Monthly Earnings</h3>
+                    <p>$800.00</p>
+                </div>
+            </div>
+            <button class="details-btn" id="moreDetailsBtn">More Details</button>
+        </section>
+
+        <!-- For Store Owners -->
+        <section class="store-owner-section">
+            <h2>For Store Owners</h2>
+            <div class="items-list">
+                <div class="item">
+                    <span>Coffee - $3.00</span>
+                    <div class="quantity-controls">
+                        <button class="decrease-btn">-</button>
+                        <span class="quantity">0</span>
+                        <button class="increase-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <span>Bagel - $2.50</span>
+                    <div class="quantity-controls">
+                        <button class="decrease-btn">-</button>
+                        <span class="quantity">0</span>
+                        <button class="increase-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <span>Sandwich - $5.00</span>
+                    <div class="quantity-controls">
+                        <button class="decrease-btn">-</button>
+                        <span class="quantity">0</span>
+                        <button class="increase-btn">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="store-buttons">
+                <button class="reset-btn" id="resetInvoiceBtn">Reset</button>
+                <button class="generate-btn" id="generateInvoiceBtn">Generate Invoice</button>
+            </div>
         </section>
     </main>
 
     <!-- Modals -->
     <div id="modals">
-
-        <!-- Panhandlers and Service Workers View Modal -->
-        <div id="panhandlerModal" class="modal">
+        <!-- Scan QR Code Modal -->
+        <div id="scanQRModal" class="modal">
             <div class="modal-content">
-                <h2>Earnings Overview</h2>
-                <p>Daily: $30.00</p>
-                <p>Weekly: $200.00</p>
-                <p>Monthly: $800.00</p>
-                <button class="close-modal">Close</button>
+                <h2>Scan QR Code</h2>
+                <div class="camera-view">
+                    <img src="camera-placeholder.jpg" alt="Camera View" />
+                </div>
+                <button class="close-modal">&times;</button>
             </div>
         </div>
 
-        <!-- Send/Receive Payment Flows Modal -->
-        <div id="paymentModal" class="modal">
+        <!-- Send Money Modal -->
+        <div id="sendMoneyModal" class="modal">
             <div class="modal-content">
-                <h2>Send/Receive Payment</h2>
-                <button id="sendPayment">Send Payment</button>
-                <button id="receivePayment">Receive Payment</button>
-                <button class="close-modal">Close</button>
+                <h2>Send Money</h2>
+                <form id="sendMoneyForm">
+                    <label for="sendAmount">Amount:</label>
+                    <input type="number" id="sendAmount" placeholder="$0.00" required />
+                    
+                    <label for="sendTo">To:</label>
+                    <select id="sendTo" required>
+                        <option value="" disabled selected>Select Contact</option>
+                        <option value="john_doe">John Doe</option>
+                        <option value="jane_smith">Jane Smith</option>
+                        <option value="store_x">Store X</option>
+                    </select>
+
+                    <button type="submit" class="submit-btn">Send</button>
+                </form>
+                <button class="close-modal">&times;</button>
+            </div>
+        </div>
+
+        <!-- Receive Money Modal -->
+        <div id="receiveMoneyModal" class="modal">
+            <div class="modal-content">
+                <h2>Receive Money</h2>
+                <form id="receiveMoneyForm">
+                    <label for="receiveAmount">Amount:</label>
+                    <input type="number" id="receiveAmount" placeholder="$0.00" required />
+                    
+                    <label for="receiveFrom">From:</label>
+                    <select id="receiveFrom" required>
+                        <option value="" disabled selected>Select Contact</option>
+                        <option value="john_doe">John Doe</option>
+                        <option value="jane_smith">Jane Smith</option>
+                        <option value="company_y">Company Y</option>
+                    </select>
+
+                    <button type="submit" class="submit-btn">Request</button>
+                </form>
+                <button class="close-modal">&times;</button>
             </div>
         </div>
 
         <!-- Transaction History Modal -->
-        <div id="historyModal" class="modal">
+        <div id="transactionHistoryModal" class="modal">
             <div class="modal-content">
                 <h2>Transaction History</h2>
-                <ul>
-                    <li>John Doe - $5.00 - 08/27/2024</li>
-                    <li>Jane Smith - $10.00 - 08/26/2024</li>
-                    <li>Store X - $20.00 - 08/25/2024</li>
-                </ul>
-                <button class="close-modal">Close</button>
+                <table class="transaction-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>08/27/2024</td>
+                            <td>John Doe</td>
+                            <td>+$50.00</td>
+                            <td>Incoming</td>
+                        </tr>
+                        <tr>
+                            <td>08/26/2024</td>
+                            <td>Store X</td>
+                            <td>-$20.00</td>
+                            <td>Outgoing</td>
+                        </tr>
+                        <tr>
+                            <td>08/25/2024</td>
+                            <td>Jane Smith</td>
+                            <td>+$15.00</td>
+                            <td>Incoming</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="close-modal">&times;</button>
             </div>
         </div>
 
-        <!-- Accessibility & Help Modal -->
-        <div id="helpModal" class="modal">
+        <!-- More Details Modal -->
+        <div id="moreDetailsModal" class="modal">
             <div class="modal-content">
-                <h2>Accessibility & Help</h2>
-                <p>Adjust text size, enable high contrast mode, and access help tutorials.</p>
-                <button class="close-modal">Close</button>
+                <h2>Earnings Details</h2>
+                <table class="earnings-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Source</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>08/27/2024</td>
+                            <td>Donation from John Doe</td>
+                            <td>$10.00</td>
+                        </tr>
+                        <tr>
+                            <td>08/27/2024</td>
+                            <td>Tip from Jane Smith</td>
+                            <td>$5.00</td>
+                        </tr>
+                        <!-- More rows as needed -->
+                    </tbody>
+                </table>
+                <button class="close-modal">&times;</button>
+            </div>
+        </div>
+
+        <!-- Generate Invoice Modal -->
+        <div id="invoiceModal" class="modal">
+            <div class="modal-content">
+                <h2>Payment Invoice</h2>
+                <div class="qr-code">
+                    <!-- Placeholder for QR Code -->
+                    <img src="qr-code-placeholder.png" alt="QR Code" />
+                </div>
+                <p>Pay <span id="invoiceAmount">$0.00</span> to <strong>Coffee Time</strong></p>
+                <button class="close-modal">&times;</button>
+            </div>
+        </div>
+
+        <!-- Top Up Modal -->
+        <div id="topUpModal" class="modal">
+            <div class="modal-content">
+                <h2>Top Up Balance</h2>
+                <form id="topUpForm">
+                    <label for="topUpAmount">Amount:</label>
+                    <input type="number" id="topUpAmount" placeholder="$0.00" required />
+
+                    <label for="cardNumber">Credit Card Number:</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required />
+
+                    <label for="expiryDate">Expiry Date:</label>
+                    <input type="text" id="expiryDate" placeholder="MM/YY" required />
+
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" placeholder="123" required />
+
+                    <button type="submit" class="submit-btn">Top Up</button>
+                </form>
+                <button class="close-modal">&times;</button>
             </div>
         </div>
 
@@ -92,33 +264,42 @@
         <div id="customizationModal" class="modal">
             <div class="modal-content">
                 <h2>Customization Options</h2>
-                <label for="roleSelect">Select Role:</label>
-                <select id="roleSelect">
-                    <option value="donor">Donor</option>
-                    <option value="panhandler">Panhandler</option>
-                    <option value="serviceWorker">Service Worker</option>
-                    <option value="storeOwner">Store Owner</option>
-                </select>
-                <button class="close-modal">Close</button>
+                <form id="customizationForm">
+                    <label for="roleSelect">Select Role:</label>
+                    <select id="roleSelect">
+                        <option value="donor">Donor</option>
+                        <option value="panhandler">Panhandler</option>
+                        <option value="serviceWorker">Service Worker</option>
+                        <option value="storeOwner">Store Owner</option>
+                    </select>
+
+                    <label for="themeSelect">Select Theme:</label>
+                    <select id="themeSelect">
+                        <option value="default">Default</option>
+                        <option value="dark">Dark</option>
+                        <option value="light">Light</option>
+                    </select>
+
+                    <button type="submit" class="submit-btn">Save</button>
+                </form>
+                <button class="close-modal">&times;</button>
             </div>
         </div>
 
-        <!-- Top Up Modal -->
-        <div id="topUpModal" class="modal">
+        <!-- Notifications Modal -->
+        <div id="notificationsModal" class="modal">
             <div class="modal-content">
-                <h2>Top Up</h2>
-                <label for="cardNumber">Credit Card Number:</label>
-                <input type="text" id="cardNumber">
-                <label for="amount">Amount:</label>
-                <input type="number" id="amount">
-                <button id="topUpBtn">Top Up</button>
-                <button class="close-modal">Close</button>
+                <h2>Notifications</h2>
+                <ul class="notifications-list">
+                    <li>Your payment of $25.00 to Store X was successful.</li>
+                    <li>You received $10.00 from John Doe.</li>
+                    <li>New update available. Click here to update.</li>
+                </ul>
+                <button class="close-modal">&times;</button>
             </div>
         </div>
-
     </div>
 
-    <!-- JavaScript to handle modal logic -->
     <script src="scripts.js"></script>
 </body>
 </html>
