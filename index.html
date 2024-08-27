@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction App Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="profile-icon">👤</div>
+            <div class="balance">Balance: $123.45</div>
+            <div class="notifications">🔔</div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <button id="homeBtn">Home</button>
+        <button id="scanQRBtn">Scan QR</button>
+        <button id="sendMoneyBtn">Send Money</button>
+        <button id="receiveMoneyBtn">Receive Money</button>
+        <button id="transactionHistoryBtn">History</button>
+    </nav>
+
+    <!-- Home Screen -->
+    <main id="homeScreen">
+        <section class="recent-transactions">
+            <h2>Recent Transactions</h2>
+            <ul>
+                <li>John Doe - $5.00 - 08/27/2024</li>
+                <li>Jane Smith - $10.00 - 08/26/2024</li>
+                <li>Store X - $20.00 - 08/25/2024</li>
+            </ul>
+        </section>
+        <section class="quick-actions">
+            <button id="donateBtn">Donate to Panhandler</button>
+            <button id="sendToContactBtn">Send to Contact</button>
+            <button id="payAtStoreBtn">Pay at Store</button>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="modals">
+
+        <!-- Panhandlers and Service Workers View Modal -->
+        <div id="panhandlerModal" class="modal">
+            <div class="modal-content">
+                <h2>Earnings Overview</h2>
+                <p>Daily: $30.00</p>
+                <p>Weekly: $200.00</p>
+                <p>Monthly: $800.00</p>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+
+        <!-- Send/Receive Payment Flows Modal -->
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <h2>Send/Receive Payment</h2>
+                <button id="sendPayment">Send Payment</button>
+                <button id="receivePayment">Receive Payment</button>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+
+        <!-- Transaction History Modal -->
+        <div id="historyModal" class="modal">
+            <div class="modal-content">
+                <h2>Transaction History</h2>
+                <ul>
+                    <li>John Doe - $5.00 - 08/27/2024</li>
+                    <li>Jane Smith - $10.00 - 08/26/2024</li>
+                    <li>Store X - $20.00 - 08/25/2024</li>
+                </ul>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+
+        <!-- Accessibility & Help Modal -->
+        <div id="helpModal" class="modal">
+            <div class="modal-content">
+                <h2>Accessibility & Help</h2>
+                <p>Adjust text size, enable high contrast mode, and access help tutorials.</p>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+
+        <!-- Customization Options Modal -->
+        <div id="customizationModal" class="modal">
+            <div class="modal-content">
+                <h2>Customization Options</h2>
+                <label for="roleSelect">Select Role:</label>
+                <select id="roleSelect">
+                    <option value="donor">Donor</option>
+                    <option value="panhandler">Panhandler</option>
+                    <option value="serviceWorker">Service Worker</option>
+                    <option value="storeOwner">Store Owner</option>
+                </select>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+
+        <!-- Top Up Modal -->
+        <div id="topUpModal" class="modal">
+            <div class="modal-content">
+                <h2>Top Up</h2>
+                <label for="cardNumber">Credit Card Number:</label>
+                <input type="text" id="cardNumber">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount">
+                <button id="topUpBtn">Top Up</button>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript to handle modal logic -->
+    <script src="scripts.js"></script>
+</body>
+</html>
