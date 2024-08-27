@@ -25,9 +25,10 @@
 
     <!-- Main Navigation -->
     <nav class="main-nav">
-        <button id="scanQRBtn"><i class="fas fa-qrcode"></i><span>Scan QR</span></button>
+        <button id="showQRBtn"><i class="fas fa-qrcode"></i><span>Show QR</span></button>
+        <button id="scanQRBtn"><i class="fas fa-camera"></i><span>Scan QR</span></button>
         <button id="sendMoneyBtn"><i class="fas fa-paper-plane"></i><span>Send Money</span></button>
-        <button id="receiveMoneyBtn"><i class="fas fa-inbox"></i><span>Receive Money</span></button>
+        <button id="receiveMoneyBtn"><i class="fas fa-inbox"></i><span>Request Money</span></button>
         <button id="transactionHistoryBtn"><i class="fas fa-history"></i><span>History</span></button>
         <button id="customizationBtn"><i class="fas fa-cog"></i><span>Customize</span></button>
     </nav>
@@ -40,12 +41,13 @@
             <button class="action-btn" id="tipServiceWorkerBtn">Tip Service Worker</button>
             <button class="action-btn" id="sendToContactBtn">Send to Contact</button>
             <button class="action-btn" id="payAtStoreBtn">Pay at Store</button>
+            <button class="action-btn" id="showQRBtn">Show My QR Code</button>
             <button class="action-btn" id="topUpBtn">Top Up</button>
         </section>
 
         <!-- For Panhandlers and Service Workers -->
         <section class="panhandler-section">
-            <h2>For Panhandlers and Service Workers</h2>
+            <h2>Panel shown only to Panhandlers and Service Workers</h2>
             <div class="earnings-overview">
                 <div class="earnings-card">
                     <h3>Daily Earnings</h3>
@@ -63,9 +65,29 @@
             <button class="details-btn" id="moreDetailsBtn">More Details</button>
         </section>
 
+        <!-- For Donors -->
+        <section class="donor-section">
+            <h2>Panel shown only to Donors</h2>
+            <div class="donations-overview">
+                <div class="donor-card">
+                    <h3>Daily Tips & Donations</h3>
+                    <p>$10.00</p>
+                </div>
+                <div class="donor-card">
+                    <h3>Weekly Tips & Donations</h3>
+                    <p>$50.00</p>
+                </div>
+                <div class="donor-card">
+                    <h3>Monthly Tips & Donations</h3>
+                    <p>$200.00</p>
+                </div>
+            </div>
+            <button class="details-btn" id="moreDetailsBtn">More Details</button>
+        </section>
+
         <!-- For Store Owners -->
         <section class="store-owner-section">
-            <h2>For Store Owners</h2>
+            <h2>Panel shown only to Store Owners</h2>
             <div class="items-list">
                 <div class="item">
                     <span>Coffee - $3.00</span>
@@ -101,6 +123,7 @@
 
     <!-- Modals -->
     <div id="modals">
+        
         <!-- Scan QR Code Modal -->
         <div id="scanQRModal" class="modal">
             <div class="modal-content">
@@ -108,6 +131,19 @@
                 <div class="camera-view">
                     <img src="camera-placeholder.jpg" alt="Camera View" />
                 </div>
+                <button class="close-modal">&times;</button>
+            </div>
+        </div>
+
+        <!-- Show QR Modal -->
+        <div id="showQRModal" class="modal">
+            <div class="modal-content">
+                <h2>My QR Code</h2>
+                <div class="qr-code">
+                    <!-- Placeholder for QR Code -->
+                    <img src="qr-code-placeholder.png" alt="QR Code" />
+                </div>
+                <p>Scan this to send money to John Doe</strong></p>
                 <button class="close-modal">&times;</button>
             </div>
         </div>
