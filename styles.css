@@ -119,7 +119,8 @@ main {
     color: #fff;
 }
 
-.earnings-overview {
+.earnings-overview
+-donations-overview {
     display: flex;
     justify-content: space-around;
     margin-top: 15px;
