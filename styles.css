@@ -26,18 +26,19 @@ header {
 .logo-placeholder {
     font-size: 1.5em;
     color: #fff;
+    flex: 1;
 }
 
-.profile-icon img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+.header-icons {
+    display: flex;
+    align-items: center;
 }
 
 .notifications {
     font-size: 1.5em;
     cursor: pointer;
     position: relative;
+    margin-right: 15px;
 }
 
 .notifications::after {
@@ -48,6 +49,12 @@ header {
     width: 10px;
     height: 10px;
     background-color: red;
+    border-radius: 50%;
+}
+
+.profile-icon img {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
 
@@ -133,10 +140,17 @@ main {
 }
 
 .section-heading {
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.conditional-text {
     font-size: 0.9em;
     font-style: italic;
     color: purple;
     text-align: right;
+    margin-bottom: 20px;
 }
 
 .earnings-overview,
