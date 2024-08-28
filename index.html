@@ -150,6 +150,7 @@
 
     <!-- Modals -->
     <div id="modals">
+        
         <!-- Scan QR Code Modal -->
         <div id="scanQRModal" class="modal">
             <div class="modal-content">
@@ -299,6 +300,7 @@
             <div class="modal-content">
                 <h2>Customization Options</h2>
                 <form id="customizationForm">
+                    <h3>I identify mostly as:</h3>
                     <label for="roleSelect">Select Role:</label>
                     <select id="roleSelect">
                         <option value="donor">Donor</option>
@@ -307,6 +309,7 @@
                         <option value="storeOwner">Store Owner</option>
                     </select>
 
+                    <h3>Charity Selection</h3>
                     <label for="charitySelect">Choose Charity:</label>
                     <select id="charitySelect">
                         <option value="charity1">Charity 1</option>
@@ -316,11 +319,12 @@
                         <option value="charity5">Charity 5</option>
                     </select>
 
+                    <h3>Website Theme</h3>
                     <label for="themeSelect">Select Theme:</label>
                     <select id="themeSelect">
-                        <option value="default">Default</option>
-                        <option value="dark">Dark</option>
-                        <option value="light">Light</option>
+                        <option value="Dark">Dark</option>
+                        <option value="Light">Light</option>
+                        <option value="System">Default</option>
                     </select>
 
                     <button type="submit" class="submit-btn">Save</button>
