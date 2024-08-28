@@ -14,20 +14,16 @@
             <div class="logo-placeholder">
                 <strong>TCOIN.ME</strong>
             </div>
-            <div class="notifications" id="notificationsBtn">
-                <i class="fas fa-bell"></i>
-            </div>
-            <div class="profile-icon">
-                <img src="images/profile.jpg" alt="Profile" />
+            <div class="header-icons">
+                <div class="notifications" id="notificationsBtn">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="profile-icon">
+                    <img src="images/profile.jpg" alt="Profile" />
+                </div>
             </div>
         </div>
     </header>
-
-    <!-- Balance Panel -->
-    <section class="balance-panel">
-        <div class="balance-large">123.45 TCOIN</div>
-        <div class="balance-small">$407.39 CAD</div>
-    </section>
 
     <!-- Main Navigation -->
     <nav class="main-nav">
@@ -52,9 +48,16 @@
             <button class="action-btn" id="topUpBtn">Top Up TCOIN Balance</button>
         </section>
 
+        <!-- Balance Panel -->
+        <section class="balance-panel">
+            <div class="balance-large">123.45 TCOIN</div>
+            <div class="balance-small">$407.39 CAD</div>
+        </section>
+
         <!-- For Panhandlers and Service Workers -->
         <section class="panhandler-section">
-            <h2 class="section-heading">Earnings Summary</h2>
+            <h2>Earnings Summary</h2>
+            <p class="conditional-text">Panel shown only to Panhandlers and Service Workers</p>
             <div class="earnings-overview">
                 <div class="earnings-card">
                     <h3>Daily Earnings</h3>
@@ -74,7 +77,8 @@
 
         <!-- For Donors -->
         <section class="donor-section">
-            <h2 class="section-heading">Donation Summary</h2>
+            <h2>Donations Summary</h2>
+            <p class="conditional-text">Panel shown only to Donors</p>
             <div class="donations-overview">
                 <div class="donor-card">
                     <h3>Daily Tips & Donations</h3>
@@ -94,7 +98,8 @@
 
         <!-- For Store Owners -->
         <section class="store-owner-section">
-            <h2 class="section-heading">Charge Your Customer</h2>
+            <h2>Charge Your Customer</h2>
+            <p class="conditional-text">Panel shown only to Store Owners</p>
             <div class="items-list">
                 <div class="item">
                     <span>Coffee - 3 TCOIN ($9.90)</span>
