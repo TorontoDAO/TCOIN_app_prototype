@@ -18,23 +18,20 @@ body {
 header {
     background-color: transparent;
     padding: 20px;
-}
-
-.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logo-placeholder {
+    font-size: 1.5em;
+    color: #fff;
 }
 
 .profile-icon img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-}
-
-.balance span {
-    font-weight: bold;
-    font-size: 1.2em;
 }
 
 .notifications {
@@ -52,6 +49,22 @@ header {
     height: 10px;
     background-color: red;
     border-radius: 50%;
+}
+
+/* Balance Panel */
+.balance-panel {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.balance-large {
+    font-size: 3em;
+    color: #fff;
+}
+
+.balance-small {
+    font-size: 1em;
+    color: #fff;
 }
 
 /* Navigation Styles */
@@ -117,6 +130,13 @@ main {
     padding: 20px;
     border-radius: 5px;
     color: #fff;
+}
+
+.section-heading {
+    font-size: 0.9em;
+    font-style: italic;
+    color: purple;
+    text-align: right;
 }
 
 .earnings-overview,
@@ -188,6 +208,14 @@ main {
 
 .generate-btn {
     background-color: #e91e63;
+    color: #fff;
+}
+
+/* Analytics Pane */
+.analytics-pane {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 5px;
     color: #fff;
 }
 
