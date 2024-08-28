@@ -14,7 +14,8 @@ document.getElementById('showQRBtn').addEventListener('click', () => openModal('
 document.getElementById('sendMoneyBtn').addEventListener('click', () => openModal('sendMoneyModal'));
 document.getElementById('receiveMoneyBtn').addEventListener('click', () => openModal('receiveMoneyModal'));
 document.getElementById('transactionHistoryBtn').addEventListener('click', () => openModal('transactionHistoryModal'));
-document.getElementById('moreDetailsBtn').addEventListener('click', () => openModal('moreDetailsModal'));
+document.getElementById('moreEarningsDetailsBtn').addEventListener('click', () => openModal('moreEarningDetailsModal'));
+document.getElementById('moreDonationsDetailsBtn').addEventListener('click', () => openModal('moreDonationDetailsModal'));
 document.getElementById('generateInvoiceBtn').addEventListener('click', generateInvoice);
 document.getElementById('resetInvoiceBtn').addEventListener('click', resetInvoice);
 document.getElementById('topUpBtn').addEventListener('click', () => openModal('topUpModal'));
