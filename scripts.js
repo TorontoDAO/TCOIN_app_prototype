@@ -33,6 +33,19 @@ document.querySelectorAll('.close-modal').forEach(button => {
     button.addEventListener('click', () => closeModal(button.parentElement.parentElement));
 });
 
+// Close modals with ESC key or clicking outside
+window.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+        document.querySelectorAll('.modal').forEach(modal => closeModal(modal));
+    }
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal')) {
+        closeModal(e.target);
+    }
+});
+
 // Invoice Generation Logic
 function generateInvoice() {
     let totalAmount = 0;
@@ -76,21 +89,18 @@ document.querySelectorAll('.decrease-btn').forEach(button => {
 // Form Submission Handlers
 document.getElementById('sendMoneyForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    // Implement send money logic here
     alert('TCOIN Sent Successfully!');
     closeModal(document.getElementById('sendMoneyModal'));
 });
 
 document.getElementById('receiveMoneyForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    // Implement receive money logic here
     alert('Money Request Sent!');
     closeModal(document.getElementById('receiveMoneyModal'));
 });
 
 document.getElementById('topUpForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    // Implement top-up logic here
     alert('Balance Topped Up Successfully!');
     closeModal(document.getElementById('topUpModal'));
 });
@@ -100,14 +110,6 @@ document.getElementById('customizationForm').addEventListener('submit', (e) => {
     const selectedRole = document.getElementById('roleSelect').value;
     const selectedCharity = document.getElementById('charitySelect').value;
     const selectedTheme = document.getElementById('themeSelect').value;
-    // Implement customization logic here
     alert(`Role set to ${selectedRole}, Charity set to ${selectedCharity}, Theme set to ${selectedTheme}.`);
     closeModal(document.getElementById('customizationModal'));
-});
-
-// Close modals with ESC key
-window.addEventListener('keydown', (e) => {
-    if (e.key === "Escape") {
-        document.querySelectorAll('.modal').forEach(modal => closeModal(modal));
-    }
 });
