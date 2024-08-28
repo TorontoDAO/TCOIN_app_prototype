@@ -10,7 +10,8 @@ function closeModal(modal) {
 
 // Event Listeners for Opening Modals
 document.getElementById('scanQRBtn').addEventListener('click', () => openModal('scanQRModal'));
-document.getElementById('showQRBtn').addEventListener('click', () => openModal('showQRModal'));
+document.getElementById('showQRBtn1').addEventListener('click', () => openModal('showQRModal'));
+document.getElementById('showQRBtn2').addEventListener('click', () => openModal('showQRModal'));
 document.getElementById('sendMoneyBtn').addEventListener('click', () => openModal('sendMoneyModal'));
 document.getElementById('receiveMoneyBtn').addEventListener('click', () => openModal('receiveMoneyModal'));
 document.getElementById('transactionHistoryBtn').addEventListener('click', () => openModal('transactionHistoryModal'));
