@@ -11,25 +11,32 @@
     <!-- Header Section -->
     <header>
         <div class="header-container">
-            <div class="profile-icon">
-                <img src="images/profile.jpg" alt="Profile" />
-            </div>
-            <div class="balance">
-                Balance: <span>$123.45</span>
+            <div class="logo-placeholder">
+                <strong>TCOIN.ME</strong>
             </div>
             <div class="notifications" id="notificationsBtn">
                 <i class="fas fa-bell"></i>
             </div>
+            <div class="profile-icon">
+                <img src="images/profile.jpg" alt="Profile" />
+            </div>
         </div>
     </header>
+
+    <!-- Balance Panel -->
+    <section class="balance-panel">
+        <div class="balance-large">123.45 TCOIN</div>
+        <div class="balance-small">$407.39 CAD</div>
+    </section>
 
     <!-- Main Navigation -->
     <nav class="main-nav">
         <button id="showQRBtn1"><i class="fas fa-qrcode"></i><span>Show QR</span></button>
         <button id="scanQRBtn"><i class="fas fa-camera"></i><span>Scan QR</span></button>
-        <button id="sendMoneyBtn"><i class="fas fa-paper-plane"></i><span>Send Money</span></button>
-        <button id="receiveMoneyBtn"><i class="fas fa-inbox"></i><span>Request Money</span></button>
+        <button id="sendMoneyBtn"><i class="fas fa-paper-plane"></i><span>Send TCOIN</span></button>
+        <button id="receiveMoneyBtn"><i class="fas fa-inbox"></i><span>Request TCOIN</span></button>
         <button id="transactionHistoryBtn"><i class="fas fa-history"></i><span>History</span></button>
+        <button id="contactsBtn"><i class="fas fa-address-book"></i><span>Contacts</span></button>
         <button id="customizationBtn"><i class="fas fa-cog"></i><span>Customize</span></button>
     </nav>
 
@@ -39,27 +46,27 @@
         <section class="quick-actions">
             <button class="action-btn" id="donateBtn">Donate to Panhandler</button>
             <button class="action-btn" id="tipServiceWorkerBtn">Tip Service Worker</button>
-            <button class="action-btn" id="sendToContactBtn">Send to Contact</button>
+            <button class="action-btn" id="sendToContactBtn">Send TCOIN</button>
             <button class="action-btn" id="payAtStoreBtn">Pay at Store</button>
             <button class="action-btn" id="showQRBtn2">Show My QR Code</button>
-            <button class="action-btn" id="topUpBtn">Top Up</button>
+            <button class="action-btn" id="topUpBtn">Top Up TCOIN Balance</button>
         </section>
 
         <!-- For Panhandlers and Service Workers -->
         <section class="panhandler-section">
-            <h2>Panel shown only to Panhandlers and Service Workers</h2>
+            <h2 class="section-heading">Earnings Summary</h2>
             <div class="earnings-overview">
                 <div class="earnings-card">
                     <h3>Daily Earnings</h3>
-                    <p>$30.00</p>
+                    <p>30 TCOIN ($99)</p>
                 </div>
                 <div class="earnings-card">
                     <h3>Weekly Earnings</h3>
-                    <p>$200.00</p>
+                    <p>200 TCOIN ($660)</p>
                 </div>
                 <div class="earnings-card">
                     <h3>Monthly Earnings</h3>
-                    <p>$800.00</p>
+                    <p>800 TCOIN ($2640)</p>
                 </div>
             </div>
             <button class="details-btn" id="moreEarningsDetailsBtn">More Details</button>
@@ -67,19 +74,19 @@
 
         <!-- For Donors -->
         <section class="donor-section">
-            <h2>Panel shown only to Donors</h2>
+            <h2 class="section-heading">Donation Summary</h2>
             <div class="donations-overview">
                 <div class="donor-card">
                     <h3>Daily Tips & Donations</h3>
-                    <p>$10.00</p>
+                    <p>10 TCOIN ($33)</p>
                 </div>
                 <div class="donor-card">
                     <h3>Weekly Tips & Donations</h3>
-                    <p>$50.00</p>
+                    <p>50 TCOIN ($165)</p>
                 </div>
                 <div class="donor-card">
                     <h3>Monthly Tips & Donations</h3>
-                    <p>$200.00</p>
+                    <p>200 TCOIN ($660)</p>
                 </div>
             </div>
             <button class="details-btn" id="moreDonationsDetailsBtn">More Details</button>
@@ -87,10 +94,10 @@
 
         <!-- For Store Owners -->
         <section class="store-owner-section">
-            <h2>Panel shown only to Store Owners</h2>
+            <h2 class="section-heading">Charge Your Customer</h2>
             <div class="items-list">
                 <div class="item">
-                    <span>Coffee - $3.00</span>
+                    <span>Coffee - 3 TCOIN ($9.90)</span>
                     <div class="quantity-controls">
                         <button class="decrease-btn">-</button>
                         <span class="quantity">0</span>
@@ -98,7 +105,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <span>Bagel - $2.50</span>
+                    <span>Bagel - 2.5 TCOIN ($8.25)</span>
                     <div class="quantity-controls">
                         <button class="decrease-btn">-</button>
                         <span class="quantity">0</span>
@@ -106,7 +113,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <span>Sandwich - $5.00</span>
+                    <span>Sandwich - 5 TCOIN ($16.50)</span>
                     <div class="quantity-controls">
                         <button class="decrease-btn">-</button>
                         <span class="quantity">0</span>
@@ -119,11 +126,19 @@
                 <button class="generate-btn" id="generateInvoiceBtn">Generate Invoice</button>
             </div>
         </section>
+        
+        <!-- Analytics Pane -->
+        <section class="analytics-pane">
+            <h2>Analytics</h2>
+            <div id="spend-over-time-graph">[Graph Placeholder]</div>
+            <div id="charity-contribution">
+                <strong>My Activity Contributed:</strong> <span id="charity-amount">50 TCOIN</span> to charity
+            </div>
+        </section>
     </main>
 
     <!-- Modals -->
     <div id="modals">
-        
         <!-- Scan QR Code Modal -->
         <div id="scanQRModal" class="modal">
             <div class="modal-content">
@@ -140,10 +155,9 @@
             <div class="modal-content">
                 <h2>My QR Code</h2>
                 <div class="qr-code">
-                    <!-- Placeholder for QR Code -->
                     <img src="images/qr-code-placeholder.png" alt="QR Code" />
                 </div>
-                <p>Scan this to send money to John Doe</strong></p>
+                <p>Scan this to send money to John Doe</p>
                 <button class="close-modal">&times;</button>
             </div>
         </div>
@@ -151,10 +165,10 @@
         <!-- Send Money Modal -->
         <div id="sendMoneyModal" class="modal">
             <div class="modal-content">
-                <h2>Send Money</h2>
+                <h2>Send TCOIN</h2>
                 <form id="sendMoneyForm">
                     <label for="sendAmount">Amount:</label>
-                    <input type="number" id="sendAmount" placeholder="$0.00" required />
+                    <input type="number" id="sendAmount" placeholder="0.00 TCOIN" required />
                     
                     <label for="sendTo">To:</label>
                     <select id="sendTo" required>
@@ -173,10 +187,10 @@
         <!-- Receive Money Modal -->
         <div id="receiveMoneyModal" class="modal">
             <div class="modal-content">
-                <h2>Receive Money</h2>
+                <h2>Request TCOIN</h2>
                 <form id="receiveMoneyForm">
                     <label for="receiveAmount">Amount:</label>
-                    <input type="number" id="receiveAmount" placeholder="$0.00" required />
+                    <input type="number" id="receiveAmount" placeholder="0.00 TCOIN" required />
                     
                     <label for="receiveFrom">From:</label>
                     <select id="receiveFrom" required>
@@ -203,87 +217,31 @@
                             <th>Description</th>
                             <th>Amount</th>
                             <th>Type</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>08/27/2024</td>
                             <td>John Doe</td>
-                            <td>+$50.00</td>
+                            <td>50 TCOIN ($165)</td>
                             <td>Incoming</td>
+                            <td><button class="contact-action-btn">Add to Contact</button></td>
                         </tr>
                         <tr>
                             <td>08/26/2024</td>
                             <td>Store X</td>
-                            <td>-$20.00</td>
+                            <td>-20 TCOIN ($66)</td>
                             <td>Outgoing</td>
+                            <td><button class="contact-action-btn" disabled>Already in Contacts</button></td>
                         </tr>
                         <tr>
                             <td>08/25/2024</td>
                             <td>Jane Smith</td>
-                            <td>+$15.00</td>
+                            <td>15 TCOIN ($49.50)</td>
                             <td>Incoming</td>
+                            <td><button class="contact-action-btn">Add to Contact</button></td>
                         </tr>
-                    </tbody>
-                </table>
-                <button class="close-modal">&times;</button>
-            </div>
-        </div>
-
-        <!-- More Earning Details Modal -->
-        <div id="moreEarningDetailsModal" class="modal">
-            <div class="modal-content">
-                <h2>Earnings Details</h2>
-                <table class="earnings-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Source</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>08/27/2024</td>
-                            <td>Donation from John Doe</td>
-                            <td>$10.00</td>
-                        </tr>
-                        <tr>
-                            <td>08/27/2024</td>
-                            <td>Tip from Jane Smith</td>
-                            <td>$5.00</td>
-                        </tr>
-                        <!-- More rows as needed -->
-                    </tbody>
-                </table>
-                <button class="close-modal">&times;</button>
-            </div>
-        </div>
-
-        <!-- More Donation Details Modal -->
-        <div id="moreDonationDetailsModal" class="modal">
-            <div class="modal-content">
-                <h2>Donation Details</h2>
-                <table class="earnings-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Source</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>08/27/2024</td>
-                            <td>Donation to John Doe</td>
-                            <td>$10.00</td>
-                        </tr>
-                        <tr>
-                            <td>08/27/2024</td>
-                            <td>Tip to Jane Smith</td>
-                            <td>$5.00</td>
-                        </tr>
-                        <!-- More rows as needed -->
                     </tbody>
                 </table>
                 <button class="close-modal">&times;</button>
@@ -295,10 +253,9 @@
             <div class="modal-content">
                 <h2>Payment Invoice</h2>
                 <div class="qr-code">
-                    <!-- Placeholder for QR Code -->
                     <img src="images/qr-code-placeholder.png" alt="QR Code" />
                 </div>
-                <p>Pay <span id="invoiceAmount">$0.00</span> to <strong>Coffee Time</strong></p>
+                <p>Pay <span id="invoiceAmount">0.00 TCOIN</span> to <strong>Coffee Time</strong></p>
                 <button class="close-modal">&times;</button>
             </div>
         </div>
@@ -306,10 +263,10 @@
         <!-- Top Up Modal -->
         <div id="topUpModal" class="modal">
             <div class="modal-content">
-                <h2>Top Up Balance</h2>
+                <h2>Top Up TCOIN Balance</h2>
                 <form id="topUpForm">
                     <label for="topUpAmount">Amount:</label>
-                    <input type="number" id="topUpAmount" placeholder="$0.00" required />
+                    <input type="number" id="topUpAmount" placeholder="0.00 TCOIN" required />
 
                     <label for="cardNumber">Credit Card Number:</label>
                     <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required />
@@ -339,6 +296,15 @@
                         <option value="storeOwner">Store Owner</option>
                     </select>
 
+                    <label for="charitySelect">Choose Charity:</label>
+                    <select id="charitySelect">
+                        <option value="charity1">Charity 1</option>
+                        <option value="charity2">Charity 2</option>
+                        <option value="charity3">Charity 3</option>
+                        <option value="charity4">Charity 4</option>
+                        <option value="charity5">Charity 5</option>
+                    </select>
+
                     <label for="themeSelect">Select Theme:</label>
                     <select id="themeSelect">
                         <option value="default">Default</option>
@@ -357,9 +323,22 @@
             <div class="modal-content">
                 <h2>Notifications</h2>
                 <ul class="notifications-list">
-                    <li>Your payment of $25.00 to Store X was successful.</li>
-                    <li>You received $10.00 from John Doe.</li>
+                    <li>Your payment of 25 TCOIN ($82.50) to Store X was successful.</li>
+                    <li>You received 10 TCOIN ($33) from John Doe.</li>
                     <li>New update available. Click here to update.</li>
+                </ul>
+                <button class="close-modal">&times;</button>
+            </div>
+        </div>
+
+        <!-- Contacts Modal -->
+        <div id="contactsModal" class="modal">
+            <div class="modal-content">
+                <h2>My Contacts</h2>
+                <ul class="contacts-list">
+                    <li>John Doe</li>
+                    <li>Jane Smith</li>
+                    <li>Store X</li>
                 </ul>
                 <button class="close-modal">&times;</button>
             </div>
