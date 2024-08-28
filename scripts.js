@@ -26,6 +26,7 @@ document.getElementById('donateBtn').addEventListener('click', () => openModal('
 document.getElementById('tipServiceWorkerBtn').addEventListener('click', () => openModal('sendMoneyModal'));
 document.getElementById('sendToContactBtn').addEventListener('click', () => openModal('sendMoneyModal'));
 document.getElementById('payAtStoreBtn').addEventListener('click', () => openModal('scanQRModal'));
+document.getElementById('contactsBtn').addEventListener('click', () => openModal('contactsModal'));
 
 // Event Listener for Closing Modals
 document.querySelectorAll('.close-modal').forEach(button => {
@@ -38,10 +39,10 @@ function generateInvoice() {
     const items = document.querySelectorAll('.items-list .item');
     items.forEach(item => {
         const quantity = parseInt(item.querySelector('.quantity').innerText);
-        const price = parseFloat(item.querySelector('span').innerText.split('$')[1]);
+        const price = parseFloat(item.querySelector('span').innerText.split(' ')[0]); // Extract TCOIN value
         totalAmount += quantity * price;
     });
-    document.getElementById('invoiceAmount').innerText = `$${totalAmount.toFixed(2)}`;
+    document.getElementById('invoiceAmount').innerText = `${totalAmount.toFixed(2)} TCOIN`;
     openModal('invoiceModal');
 }
 
@@ -76,7 +77,7 @@ document.querySelectorAll('.decrease-btn').forEach(button => {
 document.getElementById('sendMoneyForm').addEventListener('submit', (e) => {
     e.preventDefault();
     // Implement send money logic here
-    alert('Money Sent Successfully!');
+    alert('TCOIN Sent Successfully!');
     closeModal(document.getElementById('sendMoneyModal'));
 });
 
@@ -97,15 +98,16 @@ document.getElementById('topUpForm').addEventListener('submit', (e) => {
 document.getElementById('customizationForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const selectedRole = document.getElementById('roleSelect').value;
+    const selectedCharity = document.getElementById('charitySelect').value;
     const selectedTheme = document.getElementById('themeSelect').value;
     // Implement customization logic here
-    alert(`Role set to ${selectedRole} with ${selectedTheme} theme.`);
+    alert(`Role set to ${selectedRole}, Charity set to ${selectedCharity}, Theme set to ${selectedTheme}.`);
     closeModal(document.getElementById('customizationModal'));
 });
 
-// Close modal when clicking outside modal content
-window.addEventListener('click', (e) => {
-    if (e.target.classList.contains('modal')) {
-        closeModal(e.target);
+// Close modals with ESC key
+window.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+        document.querySelectorAll('.modal').forEach(modal => closeModal(modal));
     }
 });
